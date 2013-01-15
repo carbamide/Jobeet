@@ -8,19 +8,25 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
-            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-            new Symfony\Bundle\TwigBundle\TwigBundle(),
-            new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-	    	new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\AopBundle\JMSAopBundle(),
-            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new Ens\JobeetBundle\EnsJobeetBundle(),
+        new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+        new Symfony\Bundle\SecurityBundle\SecurityBundle(),
+        new Symfony\Bundle\TwigBundle\TwigBundle(),
+        new Symfony\Bundle\MonologBundle\MonologBundle(),
+        new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+        new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+        new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+        new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+        new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+        new JMS\AopBundle\JMSAopBundle(),
+        new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+        new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+        new Sonata\AdminBundle\SonataAdminBundle(),
+        new Sonata\BlockBundle\SonataBlockBundle(),
+        new Sonata\CacheBundle\SonataCacheBundle(),
+        new Sonata\jQueryBundle\SonatajQueryBundle(),
+        new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+        new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+        new Ens\JobeetBundle\EnsJobeetBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

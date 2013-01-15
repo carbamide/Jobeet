@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Symfony Standard Edition
 ========================
 
@@ -174,3 +175,16 @@ Enjoy!
 [13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
 [14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
 [15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
+=======
+Sonata Cache Bundle
+====================
+
+[![Build Status](https://secure.travis-ci.org/sonata-project/SonataCacheBundle.png)](https://secure.travis-ci.org/#!/sonata-project/SonataCacheBundle)
+
+Check out the documentation on [http://sonata-project.org/bundles/cache/master/doc/index.html](http://sonata-project.org/bundles/cache/master/doc/index.html)
+
+**Google Groups**: For questions and proposals you can post on this google groups
+
+* [Sonata Users](https://groups.google.com/group/sonata-users): Only for user questions
+* [Sonata Devs](https://groups.google.com/group/sonata-devs): Only for devs
+>>>>>>> c89d2db291912a866c41f4aa010f4ca45d5bca18

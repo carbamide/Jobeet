@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 app/cache/*
+=======
+.DS_Store
+coverage
+vendor
+>>>>>>> c89d2db291912a866c41f4aa010f4ca45d5bca18
