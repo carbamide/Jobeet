@@ -9,30 +9,34 @@ use Ens\JobeetBundle\Entity\Job;
 use Ens\JobeetBundle\Form\JobType;
 
 /**
- * Job controller.
- *
- */
+* Job controller.
+*
+*/
 class JobController extends Controller
 {
     /**
-     * Lists all Job entities.
-     *
-     */
+    * Lists all Job entities.
+    *
+    */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('EnsJobeetBundle:Job')->findAll();
-
+        $em = $this->getDoctrine()->getEntityManager();
+        
+        $query = $em->createQuery(
+        'SELECT j FROM EnsJobeetBundle:Job j WHERE j.expires_at > :date'
+        )->setParameter('date', date('Y-m-d H:i:s', time()));
+        
+        $entities = $query->getResult();
+        
         return $this->render('EnsJobeetBundle:Job:index.html.twig', array(
-            'entities' => $entities,
+        'entities' => $entities
         ));
     }
 
     /**
-     * Finds and displays a Job entity.
-     *
-     */
+    * Finds and displays a Job entity.
+    *
+    */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -46,29 +50,29 @@ class JobController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('EnsJobeetBundle:Job:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+        'entity'      => $entity,
+        'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
-     * Displays a form to create a new Job entity.
-     *
-     */
+    * Displays a form to create a new Job entity.
+    *
+    */
     public function newAction()
     {
         $entity = new Job();
         $form   = $this->createForm(new JobType(), $entity);
 
         return $this->render('EnsJobeetBundle:Job:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+        'entity' => $entity,
+        'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Creates a new Job entity.
-     *
-     */
+    * Creates a new Job entity.
+    *
+    */
     public function createAction(Request $request)
     {
         $entity  = new Job();
@@ -84,15 +88,15 @@ class JobController extends Controller
         }
 
         return $this->render('EnsJobeetBundle:Job:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+        'entity' => $entity,
+        'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Job entity.
-     *
-     */
+    * Displays a form to edit an existing Job entity.
+    *
+    */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -107,16 +111,16 @@ class JobController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('EnsJobeetBundle:Job:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+        'entity'      => $entity,
+        'edit_form'   => $editForm->createView(),
+        'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Edits an existing Job entity.
-     *
-     */
+    * Edits an existing Job entity.
+    *
+    */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -139,16 +143,16 @@ class JobController extends Controller
         }
 
         return $this->render('EnsJobeetBundle:Job:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+        'entity'      => $entity,
+        'edit_form'   => $editForm->createView(),
+        'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Deletes a Job entity.
-     *
-     */
+    * Deletes a Job entity.
+    *
+    */
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
@@ -172,8 +176,8 @@ class JobController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
+        ->add('id', 'hidden')
+        ->getForm()
         ;
     }
 }
