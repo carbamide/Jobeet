@@ -3232,3 +3232,4 @@
 [2013-01-15 15:14:48] event.DEBUG: Notified event "kernel.response" to listener "Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener::onKernelResponse". [] []
 [2013-01-15 15:14:48] event.DEBUG: Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse". [] []
 [2013-01-15 15:14:48] event.DEBUG: Notified event "kernel.terminate" to listener "Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener::onKernelTerminate". [] []
+[2013-01-15 15:22:38] doctrine.DEBUG: DELETE FROM job WHERE is_activated IS NULL AND created_at < ? ["2012-10-17"] []
